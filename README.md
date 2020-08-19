@@ -1,1 +1,1 @@
-# Gradle 快速开始模板
+# Gradle Quick Starter

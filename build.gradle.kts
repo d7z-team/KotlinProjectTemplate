@@ -1,32 +1,18 @@
-group = "com.github.openEdgn"
-version = "last"
+group = "com.github.openEDGN"
+version = Versions.Project.core
 
 buildscript {
-    val kotlinVersion :String by extra("1.3.72")
-
-
-    repositories {
-        maven { url = uri("https://maven.aliyun.com/repository/public/") }
-        jcenter()
-        maven { url = uri("https://jitpack.io") }
-
-    }
+    repositories.loadMirrors(rootProject)
     dependencies {
-        classpath("${kotlin("gradle-plugin")}:$kotlinVersion")
+        classpath("${kotlin("gradle-plugin")}:${Versions.Kotlin.gradlePlugin}")
     }
 }
 
 allprojects {
-    repositories {
-        maven { url = uri("https://maven.aliyun.com/repository/public/") }
-        jcenter()
-        maven { url = uri( "https://jitpack.io") }
-    }
+    repositories.loadMirrors(rootProject)
 }
 
-
-
-tasks.register("clean",Delete::class){
+tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
     for (childProject in childProjects.values) {
         delete(childProject.buildDir)

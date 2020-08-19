@@ -1,4 +1,4 @@
-package com.github.open_edgn.template
+package com.github.template
 
 
 class Main
