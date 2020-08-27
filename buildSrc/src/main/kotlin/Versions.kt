@@ -14,7 +14,3 @@ object Versions {
     }
 }
 
-/**
- * INCLUDE OpenEDGN Project
- */
-fun openEDGN(name: String, version: String? = null): String = "com.github.OpenEdgn:$name${if (version == null) "" else ":$version"}"
