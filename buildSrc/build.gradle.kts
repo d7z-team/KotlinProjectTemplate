@@ -15,14 +15,6 @@ kotlin {
     }
 }
 
-kotlinDslPluginOptions {
-    experimentalWarning.set(false)
-}
-
 dependencies {
     compileOnly(gradleApi())
 }
-
-
-
-
