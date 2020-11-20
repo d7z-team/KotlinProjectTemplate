@@ -1,16 +1,27 @@
 group = "com.github.openEDGN"
-version = Versions.Project.core
+version = "1.0"
 
 buildscript {
-    Repository.loadMirrors(repositories,rootProject)
+    repositories{
+        mavenLocal()
+        maven { url = project.uri("https://maven.aliyun.com/repository/public/") }
+        jcenter()
+        mavenCentral()
+        maven { url = project.uri("https://jitpack.io") }
+    }
     dependencies {
-        classpath("${kotlin("gradle-plugin")}:${Versions.Kotlin.gradlePlugin}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10")
     }
 }
 
 allprojects {
-    Repository.loadMirrors(repositories,rootProject)
-}
+    repositories{
+        mavenLocal()
+        maven { url = project.uri("https://maven.aliyun.com/repository/public/") }
+        jcenter()
+        mavenCentral()
+        maven { url = project.uri("https://jitpack.io") }
+    }}
 
 tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)

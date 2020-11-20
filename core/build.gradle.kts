@@ -9,7 +9,8 @@ java.sourceCompatibility = JavaVersion.VERSION_11
 dependencies {
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib"))
-    testImplementation("org.junit.jupiter:junit-jupiter:${Versions.Junit.junitJupiter}")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.6.2")
+    testImplementation("org.junit.platform:junit-platform-launcher:1.6.2")
 }
 
 tasks.test {
