@@ -6,7 +6,12 @@ import org.junit.jupiter.api.Test
 internal class MainTest {
 
     @Test
-    fun main() {
+    fun testTrue() {
         assertEquals(1 + 1, 2)
+    }
+
+    @Test
+    fun testMain() {
+        main()
     }
 }

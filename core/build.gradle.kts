@@ -6,6 +6,11 @@ plugins {
 }
 java.sourceCompatibility = JavaVersion.VERSION_11
 
+val compileKotlin: KotlinCompile by tasks
+val compileJava: JavaCompile by tasks
+compileJava.destinationDir = compileKotlin.destinationDir
+
+
 dependencies {
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib"))
@@ -24,6 +29,19 @@ tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions.jvmTarget = "11"
 }
 
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = rootProject.group.toString()
+            artifactId = project.name
+            version = rootProject.version.toString()
+            from(components["java"])
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+}
 
 
 
