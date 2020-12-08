@@ -10,6 +10,9 @@ val compileKotlin: KotlinCompile by tasks
 val compileJava: JavaCompile by tasks
 compileJava.destinationDir = compileKotlin.destinationDir
 
+java {
+    modularity.inferModulePath.set(true)
+}
 
 dependencies {
     implementation(kotlin("reflect"))
@@ -28,7 +31,10 @@ tasks.test {
 tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions.jvmTarget = "11"
 }
-
+val sourcesJar by tasks.registering(Jar::class) {
+    archiveClassifier.set("sources")
+    from(sourceSets.main.get().allSource)
+}
 publishing {
     publications {
         create<MavenPublication>("maven") {
@@ -36,6 +42,7 @@ publishing {
             artifactId = project.name
             version = rootProject.version.toString()
             from(components["java"])
+            artifact(sourcesJar.get())
         }
     }
     repositories {

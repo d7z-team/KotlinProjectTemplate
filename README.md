@@ -11,8 +11,13 @@
 5. 在项目根目录下执行 `./gradlew build -x test` 
 6. 在项目根目录下执行 `./gradlew test`
 7. 删除 [core](./core) 下的模板代码
+8. 修改 [module-info.java](./core/src/main/java/module-info.java) 中的配置
 
 ## 更新日志
+
+- **20201208** 
+    - 新增 Java 9 模块化支持
+    - 修复在使用`maven-publish`打包时未对源码打包的问题
 
 - **20201125**
     - 更改项目名称为 `GradleKotlinTemplate`

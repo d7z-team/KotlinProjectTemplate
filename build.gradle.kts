@@ -1,6 +1,6 @@
-group = "com.github.openEDGN"
+group = "com.github.OpenEDGN.GradleKotlinTemplate"
 // 你可以修改此为自己的组织地址
-version = "1.0"
+version = "last"
 // 你可以指定此为项目 版本号
 
 buildscript {
