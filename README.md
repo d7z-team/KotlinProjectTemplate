@@ -6,7 +6,7 @@
 
 - 跟随`Gradle` 和 `Kotlin` 最新稳定版本
 - 支持 `Java Module`
-- 针对中华人民共和国配置 `Maven` 加速镜像
+- ~~针对中华人民共和国配置`Maven`加速镜像~~
 
 ## 快速开始
 
@@ -16,10 +16,16 @@
 4. 修改 [settings.gradle.kts](./settings.gradle.kts) 中 `project.name` 为合适的名称
 5. 在项目根目录下执行 `./gradlew build -x test`
 6. 在项目根目录下执行 `./gradlew test`
-7. 删除 [core](./core) 下的模板代码
-8. 修改 [module-info.java](./core/src/main/java/module-info.java) 中的配置
+7. 删除 [template](./template) 下的模板代码
+8. 修改 [module-info.java](./template/src/main/java/module-info.java) 中的配置
 
 ## 更新日志
+
+- **20210720**
+  - 更新 `Kolin` 版本至 `1.5.21`
+  - 更新 `Gradle` 版本至 `7.1.1`
+  - 去除第三方不可信 `Maven` 源以降低 [供应链攻击](https://en.wikipedia.org/wiki/Supply_chain_attack) 风险
+  - 重命名默认子模块名称
 
 - **20210322**
     - 更新 `Kolin` 版本至 `1.4.31`
@@ -34,7 +40,7 @@
 - **20201125**
     - 更改项目名称为 `GradleKotlinTemplate`
     - 添加 `maven-publish` 插件，现在可以使用 `gradlew publishToMavenLocal` 了
-    - 修改 `Kotlin` 插件编译生成目录 [build.gradle.kts](./core/build.gradle.kts#L9)
+    - 修改 `Kotlin` 插件编译生成目录 [build.gradle.kts](./template/build.gradle.kts)
 
 - **20201120**
     - 更新 `kotlin` 为 `1.4.10`
