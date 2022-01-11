@@ -2,7 +2,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm")
+    id("org.jlleitschuh.gradle.ktlint")
     `maven-publish`
+    application
 }
 java.sourceCompatibility = JavaVersion.VERSION_11
 
@@ -14,11 +16,17 @@ java {
     modularity.inferModulePath.set(true)
 }
 
+application {
+    // 启动类配置
+    mainModule.set("gradle.kotlin.template")
+    mainClass.set("com.github.template.MainKt")
+}
+
 dependencies {
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib"))
-    testImplementation("org.junit.jupiter:junit-jupiter:5.6.2")
-    testImplementation("org.junit.platform:junit-platform-launcher:1.6.2")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
+    testImplementation("org.junit.platform:junit-platform-launcher:1.8.2")
 }
 
 tasks.test {
@@ -49,6 +57,3 @@ publishing {
         mavenLocal()
     }
 }
-
-
-

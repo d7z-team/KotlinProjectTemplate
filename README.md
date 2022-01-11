@@ -1,12 +1,12 @@
 # Kotlin 模板
 
-> 一套简单的 Kotlin DSL Gradle 项目
+> 一套简单的 Kotlin/JVM 多模块项目模板 ,使用 Gradle .
 
 ## 特性
 
-- 跟随`Gradle` 和 `Kotlin` 最新稳定版本
+- 跟随`Gradle` 和 `Kotlin` 最新正式版
 - 支持 `Java Module`
-- ~~针对中华人民共和国配置`Maven`加速镜像~~
+- 支持 `Java 11 LTS`
 
 ## 快速开始
 
@@ -21,6 +21,13 @@
 
 ## 更新日志
 
+- **20220111**
+  - 更新 `Kolin` 版本至 `1.6.10`
+  - 更新 `Gradle` 版本至 `7.3.3`
+  - 更新 `Junit 5` 版本至 `5.8.2`
+  - 添加 `ktlint` 用于 CheckStyle
+  - 添加 `application` 模块
+
 - **20210720**
   - 更新 `Kolin` 版本至 `1.5.21`
   - 更新 `Gradle` 版本至 `7.1.1`
@@ -28,24 +35,24 @@
   - 重命名默认子模块名称
 
 - **20210322**
-    - 更新 `Kolin` 版本至 `1.4.31`
-    - 更新 `Gradle` 版本至 `6.8.3`
-    - 去除 `resources` 下孤立文件
-    - 将插件版本配置合并到 [gradle.properties](./gradle.properties) 下
+  - 更新 `Kolin` 版本至 `1.4.31`
+  - 更新 `Gradle` 版本至 `6.8.3`
+  - 去除 `resources` 下孤立文件
+  - 将插件版本配置合并到 [gradle.properties](./gradle.properties) 下
 
 - **20201208**
-    - 新增 Java 9 模块化支持
-    - 修复在使用`maven-publish`打包时未对源码打包的问题
+  - 新增 Java 9 模块化支持
+  - 修复在使用`maven-publish`打包时未对源码打包的问题
 
 - **20201125**
-    - 更改项目名称为 `GradleKotlinTemplate`
-    - 添加 `maven-publish` 插件，现在可以使用 `gradlew publishToMavenLocal` 了
-    - 修改 `Kotlin` 插件编译生成目录 [build.gradle.kts](./template/build.gradle.kts)
+  - 更改项目名称为 `GradleKotlinTemplate`
+  - 添加 `maven-publish` 插件，现在可以使用 `gradlew publishToMavenLocal` 了
+  - 修改 `Kotlin` 插件编译生成目录 [build.gradle.kts](./template/build.gradle.kts)
 
 - **20201120**
-    - 更新 `kotlin` 为 `1.4.10`
-    - 更新 `gradle` 为 `6.5.1`
-    - 删除过时的 `buildSrc` 方案
+  - 更新 `kotlin` 为 `1.4.10`
+  - 更新 `gradle` 为 `6.5.1`
+  - 删除过时的 `buildSrc` 方案
 
 ## LICENSE
 

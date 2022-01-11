@@ -1,8 +1,7 @@
 package com.github.template
 
-
 class Main
 
 fun main() {
-    println("Hello World")
+    println("Hello World,${Main::class}.")
 }
