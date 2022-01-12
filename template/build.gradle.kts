@@ -10,7 +10,7 @@ java.sourceCompatibility = JavaVersion.VERSION_11
 
 val compileKotlin: KotlinCompile by tasks
 val compileJava: JavaCompile by tasks
-compileJava.destinationDirectory.set(compileKotlin.destinationDirectory.get())
+compileKotlin.destinationDirectory.set(compileJava.destinationDirectory.get())
 
 java {
     modularity.inferModulePath.set(true)
