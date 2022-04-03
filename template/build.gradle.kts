@@ -22,11 +22,13 @@ application {
     mainClass.set("com.github.template.MainKt")
 }
 
+val junitJupiterVersion = rootProject.property("version.junit.jupiter")!!
+val junitLauncherVersion = rootProject.property("version.junit.launcher")!!
 dependencies {
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib"))
-    testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
-    testImplementation("org.junit.platform:junit-platform-launcher:1.8.2")
+    testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
+    testImplementation("org.junit.platform:junit-platform-launcher:$junitLauncherVersion")
 }
 
 tasks.test {
@@ -46,9 +48,9 @@ val sourcesJar by tasks.registering(Jar::class) {
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            groupId = rootProject.group.toString()
+            groupId = (parent ?: rootProject).group.toString()
+            version = (parent ?: rootProject).version.toString()
             artifactId = project.name
-            version = rootProject.version.toString()
             from(components["java"])
             artifact(sourcesJar.get())
         }
