@@ -22,13 +22,13 @@ application {
     mainClass.set("com.github.template.MainKt")
 }
 
-val junitJupiterVersion = rootProject.property("version.junit.jupiter")!!
-val junitLauncherVersion = rootProject.property("version.junit.launcher")!!
+val versions = contextVersions("version")
+
 dependencies {
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib"))
-    testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
-    testImplementation("org.junit.platform:junit-platform-launcher:$junitLauncherVersion")
+    testImplementation("org.junit.jupiter:junit-jupiter:${versions["junit.jupiter"]}")
+    testImplementation("org.junit.platform:junit-platform-launcher:${versions["junit.launcher"]}")
 }
 
 tasks.test {
@@ -55,7 +55,5 @@ publishing {
             artifact(sourcesJar.get())
         }
     }
-    repositories {
-        mavenLocal()
-    }
+    includeRepositories(project)
 }

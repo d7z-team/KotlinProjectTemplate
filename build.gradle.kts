@@ -8,10 +8,9 @@ buildscript {
         maven("https://plugins.gradle.org/m2/")
     }
     dependencies {
-        val kotlinVersion = rootProject.property("version.kotlin")!!
-        val ktlintVersion = rootProject.property("version.kt-lint")!!
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
-        classpath("org.jlleitschuh.gradle:ktlint-gradle:$ktlintVersion")
+        val versions = contextVersions("version")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${versions["kotlin"]}")
+        classpath("org.jlleitschuh.gradle:ktlint-gradle:${versions["kt-lint"]}")
     }
 }
 
