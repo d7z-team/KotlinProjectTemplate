@@ -15,8 +15,6 @@ body:
       label: 你遇到了什么问题?
       description: 请告诉我们发生了什么,项目编译/运行出现了什么问题.
       placeholder: Tell us what you see!
-      value: |
-
     validations:
       required: true
   - type: input
