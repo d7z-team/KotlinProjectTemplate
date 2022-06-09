@@ -22,13 +22,11 @@ application {
     mainClass.set("com.github.template.MainKt")
 }
 
-val versions = contextVersions("version")
-
 dependencies {
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib"))
-    testImplementation("org.junit.jupiter:junit-jupiter:${versions["junit.jupiter"]}")
-    testImplementation("org.junit.platform:junit-platform-launcher:${versions["junit.launcher"]}")
+    implementation(libs.junit.jupiter)
+    implementation(libs.junit.platform.launcher)
 }
 
 tasks.test {
@@ -41,6 +39,7 @@ tasks.test {
 tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions.jvmTarget = "11"
 }
+
 val sourcesJar by tasks.registering(Jar::class) {
     archiveClassifier.set("sources")
     from(sourceSets.main.get().allSource)

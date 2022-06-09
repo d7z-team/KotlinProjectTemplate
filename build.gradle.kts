@@ -8,9 +8,7 @@ buildscript {
         maven("https://plugins.gradle.org/m2/")
     }
     dependencies {
-        val versions = contextVersions("version")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${versions["kotlin"]}")
-        classpath("org.jlleitschuh.gradle:ktlint-gradle:${versions["kt-lint"]}")
+        classpath(libs.bundles.plugins)
     }
 }
 

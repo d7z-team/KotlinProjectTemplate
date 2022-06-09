@@ -1,0 +1,20 @@
+# 注意！请使用精确的版本号，防止因版本自动升级而无法重现编译
+# 使用方法可参考 https://docs.gradle.org/current/userguide/platforms.html
+# 或者是 https://docs.gradle.org/7.4.2/userguide/platforms.html
+
+
+[versions]
+"kotlin" = "1.6.+"
+"ktlint" = "10.3.+"
+"junit-jupiter" = "5.8.+"
+"junit-platform-launcher" = "1.8.+"
+
+[libraries]
+plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+plugin-ktlint = { module = "org.jlleitschuh.gradle:ktlint-gradle", version.ref = "ktlint" }
+
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junit-platform-launcher" }
+
+[bundles]
+plugins = ["plugin-ktlint", "plugin-kotlin"]
