@@ -1,5 +1,5 @@
-name: Bug Report
-description: File a bug report
+name: Bug 反馈
+description: Bug 反馈模板
 title: "[Bug]: "
 labels: ["bug", "triage"]
 assignees:
@@ -8,55 +8,53 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
-  - type: input
-    id: contact
-    attributes:
-      label: Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
-    validations:
-      required: false
+        感谢你的反馈!
   - type: textarea
     id: what-happened
     attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen?
+      label: 你遇到了什么问题?
+      description: 请告诉我们发生了什么,项目编译/运行出现了什么问题.
       placeholder: Tell us what you see!
-      value: "A bug happened!"
+      value: |
+
     validations:
       required: true
-  - type: dropdown
+  - type: input
     id: version
     attributes:
-      label: Version
-      description: What version of our software are you running?
-      options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
+      label: 项目版本
+      description: 你当前的版本是多少？
+      placeholder: "exp：1.0.0"
     validations:
       required: true
-  - type: dropdown
-    id: browsers
+  - type: input
+    id: runtime-kotlin
     attributes:
-      label: What browsers are you seeing the problem on?
-      multiple: true
-      options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Microsoft Edge
+      label: Kotlin 版本
+      description: 你项目依赖的 `Kotlin` 版本是多少？
+      placeholder: "exp：1.6.10"
+    validations:
+      required: true
+  - type: input
+    id: runtime-java
+    attributes:
+      label: Java 版本
+      description: 你项目运行时使用的 `Java` 版本是多少？
+      placeholder: "exp：Temurin-17.0.3+7"
+    validations:
+      required: true
   - type: textarea
     id: logs
     attributes:
-      label: Relevant log output
-      description: Please copy and paste any relevant log output.
+      label: 详细的错误日志
+      description: 请粘贴详细的错误日志，以方便我们快速定位问题。
       render: shell
   - type: checkboxes
     id: terms
     attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      label: 行为守则
+      description: |
+        提交此问题，则表明你已经确认现有 Issues 下不存在相同问题，且此问题可以复现。
       options:
-        - label: I agree to follow this project's Code of Conduct
+        - label: 我同意此行为守则
           required: true
