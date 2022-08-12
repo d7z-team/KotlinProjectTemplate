@@ -24,8 +24,7 @@ application {
 dependencies {
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib"))
-    implementation(libs.junit.jupiter)
-    implementation(libs.junit.platform.launcher)
+    testImplementation(libs.bundles.tests)
 }
 
 tasks.test {

@@ -16,3 +16,4 @@ junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher
 
 [bundles]
 plugins = ["plugin-ktlint", "plugin-kotlin"]
+tests = ["junit-jupiter", "junit-platform-launcher"]
