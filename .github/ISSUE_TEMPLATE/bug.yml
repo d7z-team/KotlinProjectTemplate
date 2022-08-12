@@ -2,8 +2,6 @@ name: Bug 反馈
 description: Bug 反馈模板
 title: "[Bug]: "
 labels: ["bug", "triage"]
-assignees:
-  - octocat
 body:
   - type: markdown
     attributes:
@@ -47,7 +45,6 @@ body:
     attributes:
       label: 详细的错误日志
       description: 请粘贴详细的错误日志，以方便我们快速定位问题。
-      render: "shell"
   - type: textarea
     id: other
     attributes:
@@ -58,7 +55,7 @@ body:
     attributes:
       label: 行为守则
       description: |
-        提交此问题，则表明你已经确认现有 Issues 下不存在类似问题，且此问题可以复现。
+        提交此问题，则表明你已经确认现有 Issues 下不存在类似问题，且你已经在你使用的版本中复现此问题。
       options:
         - label: 我同意此行为守则
           required: true

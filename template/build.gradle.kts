@@ -2,7 +2,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm")
-    id("org.jlleitschuh.gradle.ktlint")
     `maven-publish`
     application
 }
@@ -54,5 +53,21 @@ publishing {
             artifact(sourcesJar.get())
         }
     }
-    includeRepositories(project)
+    repositories {
+        mavenLocal()
+        project.findProperty("m2.url")
+            ?: System.getenv("MAVEN_REPO_URL")
+                ?.toString()?.let {
+                    maven {
+                        name = "Remote"
+                        url = project.uri(it)
+                        credentials {
+                            username =
+                                (project.findProperty("m2.account") ?: System.getenv("MAVEN_ACCOUNT"))?.toString()
+                            password =
+                                (project.findProperty("m2.password") ?: System.getenv("MAVEN_PASSWORD"))?.toString()
+                        }
+                    }
+                }
+    }
 }

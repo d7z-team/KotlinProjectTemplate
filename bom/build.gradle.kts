@@ -25,5 +25,21 @@ publishing {
             version = rootProject.version.toString()
         }
     }
-    includeRepositories(project)
+    repositories {
+        mavenLocal()
+        project.findProperty("m2.url")
+            ?: System.getenv("MAVEN_REPO_URL")
+                ?.toString()?.let {
+                    maven {
+                        name = "Remote"
+                        url = project.uri(it)
+                        credentials {
+                            username =
+                                (project.findProperty("m2.account") ?: System.getenv("MAVEN_ACCOUNT"))?.toString()
+                            password =
+                                (project.findProperty("m2.password") ?: System.getenv("MAVEN_PASSWORD"))?.toString()
+                        }
+                    }
+                }
+    }
 }

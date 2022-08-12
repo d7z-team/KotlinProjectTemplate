@@ -26,3 +26,9 @@ tasks.register("clean", Delete::class) {
         delete(childProject.buildDir)
     }
 }
+subprojects {
+    apply(plugin = "org.jlleitschuh.gradle.ktlint")
+    configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
+//        version.set("0.46.1")  // 等待适配 ktlint 最新版本 see: https://github.com/JLLeitschuh/ktlint-gradle/issues/589
+    }
+}
